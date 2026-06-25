@@ -1,0 +1,31 @@
+@page "/cadastro-material"
+@using DreamBlazor.Models
+
+<h3>Cadastro de Material</h3>
+
+<input @bind="material.Id" placeholder="Id" />
+<br><br>
+
+<input @bind="material.Titulo" placeholder="Título" />
+<br><br>
+
+<input @bind="material.Descricao" placeholder="Descrição" />
+<br><br>
+
+<input @bind="material.Arquivo" placeholder="Arquivo" />
+<br><br>
+
+<input @bind="material.Disciplina" placeholder="Disciplina" />
+<br><br>
+
+<button @onclick="Cadastrar">
+    Cadastrar
+</button>
+
+@code{
+    Material material = new();
+
+    void Cadastrar()
+    {
+    }
+}
