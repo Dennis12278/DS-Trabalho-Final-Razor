@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DreamBlazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9869400f42c90686d3aea707ffe5b57be6beb7fa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c654824c747fe33f8c13973e19d75e15edc7f238")]
 [assembly: System.Reflection.AssemblyProductAttribute("DreamBlazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DreamBlazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

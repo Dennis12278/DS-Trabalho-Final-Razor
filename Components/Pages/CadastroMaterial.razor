@@ -1,5 +1,9 @@
 @page "/cadastro-material"
+@rendermode InteractiveServer
+
 @using DreamBlazor.Models
+@using System.Net.Http.Json
+@inject HttpClient Http
 
 <h3>Cadastro de Material</h3>
 
@@ -18,14 +22,47 @@
 <input @bind="material.Disciplina" placeholder="Disciplina" />
 <br><br>
 
+<label>Data de Publicação:</label>
+<br>
+
+<input type="date" @bind="dataPublicacao" />
+
+<br><br>
+
 <button @onclick="Cadastrar">
     Cadastrar
 </button>
 
-@code{
+<br><br>
+
+<p>@mensagem</p>
+
+@code {
+
     Material material = new();
 
-    void Cadastrar()
+    DateTime dataPublicacao = DateTime.Now;
+
+    string mensagem = "";
+
+    async Task Cadastrar()
     {
+        material.DataPublicacao = dataPublicacao;
+
+        var resposta = await Http.PostAsJsonAsync(
+            "api/material",
+            material);
+
+        if (resposta.IsSuccessStatusCode)
+        {
+            mensagem = "Material cadastrado com sucesso!";
+
+            material = new Material();
+            dataPublicacao = DateTime.Now;
+        }
+        else
+        {
+            mensagem = $"Erro ao cadastrar material. Status: {resposta.StatusCode}";
+        }
     }
 }

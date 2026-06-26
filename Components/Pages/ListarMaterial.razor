@@ -1,11 +1,37 @@
 @page "/listar-material"
+@using DreamBlazor.Models
+@inject HttpClient Http
 
 <h3>Lista de Materiais</h3>
 
 <table border="1">
+
     <tr>
         <th>Id</th>
         <th>Título</th>
         <th>Disciplina</th>
     </tr>
+
+    @foreach (var material in materiais)
+    {
+        <tr>
+            <td>@material.Id</td>
+            <td>@material.Titulo</td>
+            <td>@material.Disciplina</td>
+        </tr>
+    }
+
 </table>
+
+@code {
+
+    List<Material> materiais = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        materiais =
+            await Http.GetFromJsonAsync<List<Material>>
+            ("api/material")
+            ?? new();
+    }
+}
